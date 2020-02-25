@@ -4,7 +4,7 @@ on:
   push:
     branches: dev
     paths:
-      - '**.md'
+      - '**meta.json'
 
 jobs:
   diff_and_push_event:
@@ -17,8 +17,8 @@ jobs:
           gcloud auth activate-service-account --key-file=./google-key.json
           gcloud config set project ${{secrets.GOOGLE_PROJECT_DEV_ID}}
           commitid=`git log --format="%H" -n 1`
-          modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep .md`
+          modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep meta.json`
           for i in $modified; do
             echo "$i"
-            gcloud pubsub topics publish ${{secrets.PUB_SUB_TOPIC}} --message "$i"
+            gcloud pubsub topics publish ${{secrets.PUB_SUB_META_TOPIC}} --message "$i"
           done
