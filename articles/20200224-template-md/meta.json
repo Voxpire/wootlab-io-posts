@@ -1,10 +1,12 @@
 {
   "title": "Article de test",
   "description": "",
+  "url": "",
   "images": {
     "miniature": "",
     "real-size": ""
   },
+  "tag": "Game development",
   "imageCredits": "Photo by Daniel Olah on Unsplash",
   "date": "2020-02-25",
   "author": "zthulj (Jérémy THULLIEZ)",
