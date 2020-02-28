@@ -44,12 +44,17 @@ This text is ***really important***.
 At the command prompt, type `nano`.
 
 ``Use `code` in your Markdown file.``
-
+   
 ```html
     <html>
       <head>
       </head>
     </html>
+```
+
+```python
+    def from_github_to_firestore(event, context):
+        path = base64.b64decode(event['data']).decode("utf-8")
 ```
 
 ***
