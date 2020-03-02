@@ -19,6 +19,5 @@ jobs:
           commitid=`git log --format="%H" -n 1`
           modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep article.md`
           for i in $modified; do
-            echo "$i"
             gcloud pubsub topics publish ${{secrets.PUB_SUB_TOPIC}} --message "$i"
           done
