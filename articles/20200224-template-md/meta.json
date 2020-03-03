@@ -1,9 +1,9 @@
 {
   "title": "Article de test",
   "description": "",
-  "url": "",
+  "url": "something",
   "images": {
-    "highResolutionUrl": "",
+    "highResolutionUrl": " ",
     "miniatureUrl": "",
     "credits": "Photo by Daniel Olah on Unsplash"
   },

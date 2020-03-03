@@ -1,23 +1,23 @@
-name: CI Push event to GCP
+name: Publish markdown modified event
 
 on:
   push:
     branches: dev
     paths:
-      - '**meta.json'
+      - 'articles/**.md'
 
 jobs:
   diff_and_push_event:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Build the project front
+      - name: Push modified path to GCP pub sub
         run: |
           echo '${{secrets.GOOGLE_CREDENTIALS}}' > google-key.json
           gcloud auth activate-service-account --key-file=./google-key.json
           gcloud config set project ${{secrets.GOOGLE_PROJECT_DEV_ID}}
           commitid=`git log --format="%H" -n 1`
-          modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep meta.json`
+          modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep article.md`
           for i in $modified; do
-            gcloud pubsub topics publish ${{secrets.PUB_SUB_META_TOPIC}} --message "$i"
+            gcloud pubsub topics publish ${{secrets.MARKDOWN_MODIFIED_EVENT_TOPIC}} --message "$i"
           done
