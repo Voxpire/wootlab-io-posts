@@ -1,14 +1,14 @@
 {
-  "title": "Article de test",
-  "description": "Ceci est le premier article de test du site",
-  "url": "something",
+  "title": "Article de test2",
+  "description": "Ceci est le troisème article de test du site",
+  "url": "test2",
   "images": {
     "highResolutionUrl": "https://storage.cloud.google.com/wootlab-io-development.appspot.com/fox1.jpg",
     "miniatureUrl": "https://storage.cloud.google.com/wootlab-io-development.appspot.com/fox1.jpg",
     "credits": "Photo by Daniel Olah on Unsplash"
   },
   "tag": "Game development",
-  "date": "2020-02-25",
+  "date": "2020-03-04",
   "author": "zthulj (Jérémy THULLIEZ)",
   "published": true
 }
