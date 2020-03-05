@@ -3,8 +3,8 @@
   "description": "Ceci est le troisème article de test du site",
   "url": "test2",
   "images": {
-    "highResolutionUrl": "https://storage.cloud.google.com/wootlab-io-development.appspot.com/fox1.jpg",
-    "miniatureUrl": "https://storage.cloud.google.com/wootlab-io-development.appspot.com/fox1.jpg",
+    "highResolutionUrl": "https://storage.googleapis.com/wootlab-io-development.appspot.com/fox1.jpg",
+    "miniatureUrl": "https://storage.googleapis.com/wootlab-io-development.appspot.com/fox1.jpg",
     "credits": "Photo by Daniel Olah on Unsplash"
   },
   "tag": "Game development",
