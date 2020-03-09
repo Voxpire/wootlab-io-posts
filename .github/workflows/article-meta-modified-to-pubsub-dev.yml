@@ -2,7 +2,9 @@ name: Publish article meta modified event
 
 on:
   push:
-    branches: dev
+    branches:
+      - dev
+      - master
     paths:
       - 'articles/**meta.json'
 
@@ -11,11 +13,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Build the projects front
+      - name: publish event to DEV
+        if: github.ref == 'refs/heads/dev'
         run: |
-          echo '${{secrets.GOOGLE_CREDENTIALS}}' > google-key.json
+          echo '${{secrets.GOOGLE_CREDENTIALS_CONTINUOUS_DELIVERY_DEV}}' > google-key.json
           gcloud auth activate-service-account --key-file=./google-key.json
           gcloud config set project ${{secrets.GOOGLE_PROJECT_DEV_ID}}
+          commitid=`git log --format="%H" -n 1`
+          modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep meta.json`
+          for i in $modified; do
+            gcloud pubsub topics publish ${{secrets.ARTICLE_META_MODIFIED_EVENT_TOPIC}} --message "$i"
+          done
+      - name: publish event to PROD
+        if: github.ref == 'refs/heads/master'
+        run: |
+          echo '${{secrets.GOOGLE_CREDENTIALS_CONTINUOUS_DELIVERY_PROD}}' > google-key.json
+          gcloud auth activate-service-account --key-file=./google-key.json
+          gcloud config set project ${{secrets.GOOGLE_PROJECT_PROD_ID}}
           commitid=`git log --format="%H" -n 1`
           modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep meta.json`
           for i in $modified; do
