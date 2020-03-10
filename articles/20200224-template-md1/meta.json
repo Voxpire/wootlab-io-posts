@@ -1,14 +1,14 @@
 {
   "title": "Article de test",
   "description": "Ceci est le premier article de test du site",
-  "url": "something1",
+  "url": "something2",
   "images": {
     "highResolutionUrl": "https://storage.googleapis.com/wootlab-io-development.appspot.com/fox1.jpg",
     "miniatureUrl": "https://storage.googleapis.com/wootlab-io-development.appspot.com/fox1.jpg",
     "credits": "Photo by Daniel Olah on Unsplash"
   },
-  "tag": "Game dev",
-  "date": "2020-03-26",
+  "tag": "java",
+  "date": "2020-02-25",
   "author": "zthulj (Jérémy THULLIEZ)",
   "published": true
 }
