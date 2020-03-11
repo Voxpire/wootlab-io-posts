@@ -1,0 +1,37 @@
+name: Publish project markdown modified event
+
+on:
+  push:
+    branches:
+      - dev
+      - master
+    paths:
+      - 'projects/**.md'
+
+jobs:
+  diff_and_push_event:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: publish event to DEV
+        if: github.ref == 'refs/heads/dev'
+        run: |
+          echo '${{secrets.GOOGLE_CREDENTIALS_CONTINUOUS_DELIVERY_DEV}}' > google-key.json
+          gcloud auth activate-service-account --key-file=./google-key.json
+          gcloud config set project ${{secrets.GOOGLE_PROJECT_DEV_ID}}
+          commitid=`git log --format="%H" -n 1`
+          modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep .md`
+          for i in $modified; do
+            gcloud pubsub topics publish ${{secrets.PROJECT_MARKDOWN_MODIFIED_EVENT_TOPIC}} --message "$i"
+          done
+      - name: publish event to PROD
+        if: github.ref == 'refs/heads/master'
+        run: |
+          echo '${{secrets.GOOGLE_CREDENTIALS_CONTINUOUS_DELIVERY_PROD}}' > google-key.json
+          gcloud auth activate-service-account --key-file=./google-key.json
+          gcloud config set project ${{secrets.GOOGLE_PROJECT_PROD_ID}}
+          commitid=`git log --format="%H" -n 1`
+          modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep .md`
+          for i in $modified; do
+            gcloud pubsub topics publish ${{secrets.PROJECT_MARKDOWN_MODIFIED_EVENT_TOPIC}} --message "$i"
+          done

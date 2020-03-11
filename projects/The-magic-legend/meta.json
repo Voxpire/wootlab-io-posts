@@ -1,0 +1,26 @@
+{
+  "title": "The magic legend",
+  "description": "Description du projet",
+  "url": "project1",
+  "images": {
+    "highResolutionUrl": "https://storage.googleapis.com/wootlab-io-development.appspot.com/fox1.jpg",
+    "miniatureUrl": "https://storage.googleapis.com/wootlab-io-development.appspot.com/fox1.jpg",
+    "credits": "Photo by Daniel Olah on Unsplash"
+  },
+  "tag": "Game dev",
+  "date": "2020-03-26",
+  "author": "zthulj (Jérémy THULLIEZ)",
+  "published": true,
+  "chapters": [
+    {
+      "name": "chapter-1.md",
+      "title": "Chapitre 1",
+      "rank": 1
+    },
+    {
+      "name": "chapter-2.md",
+      "title": "Chapitre 2",
+      "rank": 2
+    }
+    ]
+}
