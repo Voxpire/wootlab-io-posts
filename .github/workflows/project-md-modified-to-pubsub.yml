@@ -7,6 +7,7 @@ on:
       - master
     paths:
       - 'projects/**.md'
+      - '.github/workflows/project-md-modified-to-pubsub.yml'
 
 jobs:
   diff_and_push_event:
@@ -20,7 +21,7 @@ jobs:
           gcloud auth activate-service-account --key-file=./google-key.json
           gcloud config set project ${{secrets.GOOGLE_PROJECT_DEV_ID}}
           commitid=`git log --format="%H" -n 1`
-          modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep .md`
+          modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep "\.md"`
           for i in $modified; do
             gcloud pubsub topics publish ${{secrets.PROJECT_MARKDOWN_MODIFIED_EVENT_TOPIC}} --message "$i"
           done
@@ -31,7 +32,7 @@ jobs:
           gcloud auth activate-service-account --key-file=./google-key.json
           gcloud config set project ${{secrets.GOOGLE_PROJECT_PROD_ID}}
           commitid=`git log --format="%H" -n 1`
-          modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep .md`
+          modified=`git diff-tree --no-commit-id --name-only -r $commitid | grep "\.md"`
           for i in $modified; do
             gcloud pubsub topics publish ${{secrets.PROJECT_MARKDOWN_MODIFIED_EVENT_TOPIC}} --message "$i"
           done
