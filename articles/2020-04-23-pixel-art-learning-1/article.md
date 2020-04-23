@@ -20,14 +20,14 @@ That's a long way I'm going into. Learning an art. What do I do ? Do I just open
 Well.. no, that's not how it works when you're as poor skilled as me in this domain. 
 You'll have to read and watch tutorials. And a lot of them.
 
-The stepped I've followed for now are the following : 
+**The stepped I've followed for now are the following :**
 
 1. Understand well what is pixel art. How it works. What are the different kinds of pixel arts.
 2. Learning the tools I need to start to make mines.
 3. Learning a bit of colour theory to understand why I can't just pick random colors to make my pixels arts.
 4. Try try and try again... (and mostly fail and redo)
 
-Here is a list of resources I follow to get into pixel art : 
+**Here is a list of resources I follow to get into pixel art :**
 
 1. A good forum post to get into it : [Here](https://pixeljoint.com/forum/forum_posts.asp?TID=11299&PID=139318#139318)
 2. Pixel pete's youtube channel : [Here](https://www.youtube.com/channel/UC7OO80qJzGTLOj_6-0dmOiA)
@@ -39,14 +39,16 @@ Here is a list of resources I follow to get into pixel art :
 
 ## Starts with 1 bit pixel art
 
-A cool exercice I've started to do is to work on a 16 * 16 pixel sprite with only 1 bit colors (That means 2 colors, so in general black and white). This way, I need to focus on the shapes of the thing I want to represent, and then add simple lighnings to it.
+A cool exercise I've started to do is to work on a 16 * 16 pixel sprite with only 1 bit colors (That means 2 colors, so in general black and white). This way, I need to focus on the shapes of the thing I want to represent, and then add simple lighnings to it.
+
 For example, if I want to represent a hammer. For now, the only thing that counts for me (remember I'm a newbie) is to be able to create the right drawing form.
 So I will try to make it look nice with only 2 colors and 16 pixel large. 
+
 This is the result for this : 
 
 <img src="https://storage.googleapis.com/wootlab-io-development.appspot.com/hammer.png" class="pixel-art-img" alt="hammer"/>
 
-I know it isn't perfect but I think it looks like a hammer. So it's a first win, nah ?
+*I know it isn't perfect but I think it looks like a hammer. So it's a first win, nah ?*
 
 ## What should I avoid ?
 
@@ -56,9 +58,9 @@ I know it isn't perfect but I think it looks like a hammer. So it's a first win,
 ## Conclusion & next goal
 
 Few ! It's gonna be a long way before I get skilled on this. But, I'm gonna try to keep practicing and learning ! 
-Currently, I'm making the daily challenge on lospec which is to represent a word with a given color palet. It's a good exercice.
+Currently, I'm making the daily challenge on lospec which is to represent a word with a given color palet. It's a good exercise.
 
 My next goal is to create a simple scene with a 4 colors palet (A game boy style) and try to make a mini game with it ! 
 
-See you in the next chapter !
+**See you in the next chapter !**
 
